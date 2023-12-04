@@ -28,7 +28,7 @@
 /**
  * Marlin release version identifier
  */
-//#define SHORT_BUILD_VERSION "2.1.2.1"
+#define SHORT_BUILD_VERSION "2.1.2.1-mon_4.12.23"
 
 /**
  * Verbose version identifier which should contain a reference to the location
@@ -46,7 +46,7 @@
 /**
  * Defines a generic printer name to be output to the LCD after booting Marlin.
  */
-//#define MACHINE_NAME "3D Printer"
+#define MACHINE_NAME "Pr3dat0r"
 
 /**
  * The SOURCE_CODE_URL is the location where users will find the Marlin Source

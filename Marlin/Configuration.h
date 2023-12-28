@@ -158,6 +158,7 @@ FAN2	PB15	Hotend Heat Sink Fan, to cool down the hot end
 // Name displayed in the LCD "Ready" message and Info menu
 #define CUSTOM_MACHINE_NAME "Pr3dat0r"
 
+#define DIAG_JUMPERS_REMOVED 1
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
 //#define MACHINE_UUID "00000000-0000-0000-0000-000000000000"
@@ -688,9 +689,9 @@ FAN2	PB15	Hotend Heat Sink Fan, to cool down the hot end
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_Kp  22.20
-    #define DEFAULT_Ki   1.08
-    #define DEFAULT_Kd 114.00
+    #define DEFAULT_Kp  51.97
+    #define DEFAULT_Ki   8.78
+    #define DEFAULT_Kd 76.92
   #endif
 #endif
 
@@ -773,9 +774,9 @@ FAN2	PB15	Hotend Heat Sink Fan, to cool down the hot end
 
   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define DEFAULT_bedKp 71.78
-  #define DEFAULT_bedKi 12.29
-  #define DEFAULT_bedKd 279.45
+  #define DEFAULT_bedKp 60.86
+  #define DEFAULT_bedKi 8.27
+  #define DEFAULT_bedKd 298.61
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -1504,17 +1505,17 @@ FAN2	PB15	Hotend Heat Sink Fan, to cool down the hot end
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -43, -6, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 46, -6, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 10
+#define PROBING_MARGIN 5
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_FEEDRATE (133*60)
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
-#define Z_PROBE_FEEDRATE_FAST (4*60)
+#define Z_PROBE_FEEDRATE_FAST (4*70)
 
 // Feedrate (mm/min) for the "accurate" probe of each point
 #define Z_PROBE_FEEDRATE_SLOW (Z_PROBE_FEEDRATE_FAST / 2)

@@ -25,7 +25,7 @@
  * Release version. Leave the Marlin version or apply a custom scheme.
  */
 #ifndef SHORT_BUILD_VERSION
-  #define SHORT_BUILD_VERSION "2.1.2.1_03-01_0833"
+  #define SHORT_BUILD_VERSION "2.1.2.1/19-01_13u30"
 #endif
 
 /**
@@ -73,7 +73,7 @@
  * Define a generic printer name to be output to the LCD after booting Marlin.
  */
 #ifndef MACHINE_NAME
-  #define MACHINE_NAME "3D Printer"
+  #define MACHINE_NAME "3D Predator"
 #endif
 
 /**

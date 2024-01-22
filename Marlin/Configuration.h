@@ -1509,7 +1509,7 @@ FAN2	PB15	Hotend Heat Sink Fan, to cool down the hot end
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 5
+#define PROBING_MARGIN 10
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_FEEDRATE (145*60)
@@ -1565,7 +1565,7 @@ FAN2	PB15	Hotend Heat Sink Fan, to cool down the hot end
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-//#define MULTIPLE_PROBING 2
+//#define MULTIPLE_PROBING 2//
 //#define EXTRA_PROBING    1
 
 /**
@@ -2055,7 +2055,7 @@ FAN2	PB15	Hotend Heat Sink Fan, to cool down the hot end
   #define BED_TRAMMING_HEIGHT      0.0        // (mm) Z height of nozzle at leveling points
   #define BED_TRAMMING_Z_HOP       5.0        // (mm) Z height of nozzle between leveling points
   //#define BED_TRAMMING_INCLUDE_CENTER       // Move to the center after the last corner
-  //#define BED_TRAMMING_USE_PROBE rdr interesting
+  //#define BED_TRAMMING_USE_PROBE 
   #if ENABLED(BED_TRAMMING_USE_PROBE)
     #define BED_TRAMMING_PROBE_TOLERANCE 0.1  // (mm)
     #define BED_TRAMMING_VERIFY_RAISED        // After adjustment triggers the probe, re-probe to verify
@@ -2120,7 +2120,7 @@ FAN2	PB15	Hotend Heat Sink Fan, to cool down the hot end
 #endif
 
 // Homing speeds (linear=mm/min, rotational=°/min)
-#define HOMING_FEEDRATE_MM_M { (30*60), (30*60), (4*60) }
+#define HOMING_FEEDRATE_MM_M { (45*60), (45*60), (4*60) }
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS

@@ -542,7 +542,7 @@
   //#define CONTROLLER_FAN_USE_Z_ONLY       // With this option only the Z axis is considered
   //#define CONTROLLER_FAN_IGNORE_Z         // Ignore Z stepper. Useful when stepper timeout is disabled.
   #define CONTROLLERFAN_SPEED_MIN         0 // (0-255) Minimum speed. (If set below this value the fan is turned off.)
-  #define CONTROLLERFAN_SPEED_ACTIVE    46  //  rdr: that sunon thing is noisy! (0-255) Active speed, used when any motor is enabled
+  #define CONTROLLERFAN_SPEED_ACTIVE    100 //  rdr: that sunon thing is noisy! (0-255) Active speed, used when any motor is enabled
   #define CONTROLLERFAN_SPEED_IDLE        0 // (0-255) Idle speed, used when motors are disabled
   #define CONTROLLERFAN_IDLE_TIME        20 // (seconds) Extra time to keep the fan running after disabling motors
 
@@ -1029,9 +1029,11 @@
 //
 #define ASSISTED_TRAMMING
 #if ENABLED(ASSISTED_TRAMMING)
-
+// front left: 130mm x +-20mm offset
+    // Z-offset -1.26 
   // Define positions for probe points.
-  #define TRAMMING_POINT_XY { {  50, 50 }, { 220,  20 }, { 220, 220 }, { 50, 220 } }
+  #define TRAMMING_POINT_XY { { 51, 20 }, { 220,  20 }, { 220, 220 }, { 51, 220 } } 
+  // 51 = NOZZLE_TO_PROBE_OFFSET X val + PROBING_MARGIN. See https://github.com/MarlinFirmware/Marlin/issues/25626
 
   // Define position names for probe points.
   #define TRAMMING_POINT_NAME_1 "Front-Left"
@@ -1373,7 +1375,7 @@
 // #define LCD_BACKLIGHT_TIMEOUT_MINS 3  // (minutes) Timeout before turning off the backlight
 
 #if HAS_BED_PROBE && EITHER(HAS_MARLINUI_MENU, HAS_TFT_LVGL_UI)
-  //#define PROBE_OFFSET_WIZARD       // Add a Probe Z Offset calibration option to the LCD menu
+  #define PROBE_OFFSET_WIZARD       // Add a Probe Z Offset calibration option to the LCD menu
   #if ENABLED(PROBE_OFFSET_WIZARD)
     /**
      * Enable to init the Probe Z-Offset when starting the Wizard.

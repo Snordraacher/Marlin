@@ -568,8 +568,8 @@
  *
  * Define one or both of these to override the default 0-255 range.
  */
-#define FAN_MIN_PWM 40
-#define FAN_MAX_PWM 205
+#define FAN_MIN_PWM 0
+#define FAN_MAX_PWM 255 // rdr below 255 the pwm gets audible
 
 /**
  * Fan Fast PWM

@@ -1497,7 +1497,7 @@ FAN2	PB15	Hotend Heat Sink Fan, to cool down the hot end
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 46, -6, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 41, -6, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.

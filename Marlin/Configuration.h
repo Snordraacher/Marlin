@@ -1190,14 +1190,17 @@ FAN2	PB15	Hotend Heat Sink Fan, to cool down the hot end
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 97.3 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95.85 }
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 500, 500, 5, 25 }
+#define DEFAULT_MAX_FEEDRATE          { 500, 500, 12, 25 } 
+// https://www.crosslink.io/2022/04/29/ultra-fast-probing-and-homing-with-marlin-firmware/
+// With these settings in place we do another build and flash to the printer and our probing time hasn’t changed. 
+// Why? because as I said, the Z_PROBE_FEEDRATE_FAST might be limited by what is set in the EEPROM of the printer. 
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -1505,7 +1508,7 @@ FAN2	PB15	Hotend Heat Sink Fan, to cool down the hot end
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 41, -6, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 39, -6, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1515,7 +1518,7 @@ FAN2	PB15	Hotend Heat Sink Fan, to cool down the hot end
 #define XY_PROBE_FEEDRATE (145*60)
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
-#define Z_PROBE_FEEDRATE_FAST (4*70)
+#define Z_PROBE_FEEDRATE_FAST (12*60)
 
 // Feedrate (mm/min) for the "accurate" probe of each point
 #define Z_PROBE_FEEDRATE_SLOW (Z_PROBE_FEEDRATE_FAST / 2)
@@ -1565,7 +1568,7 @@ FAN2	PB15	Hotend Heat Sink Fan, to cool down the hot end
  * A total of 2 does fast/slow probes with a weighted average.
  * A total of 3 or more adds more slow probes, taking the average.
  */
-//#define MULTIPLE_PROBING 2//
+#define MULTIPLE_PROBING 2
 //#define EXTRA_PROBING    1
 
 /**
@@ -1583,8 +1586,8 @@ FAN2	PB15	Hotend Heat Sink Fan, to cool down the hot end
  *     But: `M851 Z+1` with a CLEARANCE of 2  =>  2mm from bed to nozzle.
  */
 #define Z_CLEARANCE_DEPLOY_PROBE   10 // Z Clearance for Deploy/Stow
-#define Z_CLEARANCE_BETWEEN_PROBES  5 // Z Clearance between probe points
-#define Z_CLEARANCE_MULTI_PROBE     5 // Z Clearance between multiple probes
+#define Z_CLEARANCE_BETWEEN_PROBES  4 // Z Clearance between probe points
+#define Z_CLEARANCE_MULTI_PROBE     4 // Z Clearance between multiple probes
 //#define Z_AFTER_PROBING           5 // Z position after probing is done
 
 #define Z_PROBE_LOW_POINT          -2 // Farthest distance below the trigger-point to go before stopping
@@ -2120,7 +2123,7 @@ FAN2	PB15	Hotend Heat Sink Fan, to cool down the hot end
 #endif
 
 // Homing speeds (linear=mm/min, rotational=°/min)
-#define HOMING_FEEDRATE_MM_M { (45*60), (45*60), (4*60) }
+#define HOMING_FEEDRATE_MM_M { (90*60), (90*60), (12*60) }
 
 // Validate that endstops are triggered on homing moves
 #define VALIDATE_HOMING_ENDSTOPS
